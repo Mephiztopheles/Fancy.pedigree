@@ -1,0 +1,16 @@
+{
+    "horse" : {
+        "name"     : "Pferd 1",
+        "father"   : {
+            "name" : "Vater von Pferd 1"
+        },
+        "mother"   : {
+            "name" : "Mutter von Pferd 1"
+        },
+        "siblings" : [
+            {
+                "name" : "Pferd 2"
+            }
+        ]
+    }
+}

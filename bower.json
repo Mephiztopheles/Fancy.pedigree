@@ -1,0 +1,27 @@
+{
+    "name"         : "Fancy.pedigree",
+    "authors"      : [
+        "Markus Ahrweiler <markus.ahrweiler@web.de>"
+    ],
+    "description"  : "Pedigree-Plugin for Fancy",
+    "main"         : "fancypedigree.js",
+    "moduleType"   : [ ],
+    "keywords"     : [
+        "Fancy",
+        "pedigree"
+    ],
+    "license"      : "MIT",
+    "homepage"     : "http://mephiztopheles.wtf/Fancy.pedigree",
+    "ignore"       : [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ],
+    "dependencies" : {
+        "fancy"          : ">=1.2.0",
+        "fancy-template" : "0.0.5",
+        "fancy-promise"  : "0.0.1"
+    }
+}

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Fancy.pedigree</title>
+        <script src="../bower_components/fancy/fancy.js"></script>
+        <script src="../bower_components/fancy-lexer/fancylexer.min.js"></script>
+        <script src="../bower_components/fancy-promise/fancypromise.min.js"></script>
+        <script src="../bower_components/fancy-template/fancytemplate.min.js"></script>
+        <script src="../fancypedigree.js"></script>
+        <style>
+            #wrapper .generation {
+                min-height  : 70px;
+                padding-top : 30px;
+                position    : relative;
+            }
+
+            #wrapper .this-father {
+                position : absolute;
+                top      : 0;
+                left     : 30px;
+            }
+
+            #wrapper .siblings:after {
+                content : "";
+                clear   : both;
+                display : block;
+            }
+
+            #wrapper .siblings .sibling {
+                float       : left;
+                position    : relative;
+                padding-top : 30px;
+                min-width   : 100px;
+            }
+
+            #absolute .father {
+                position : absolute;
+                top      : 0;
+                left     : 30px;
+            }
+
+            #absolute .generation:after {
+                content : "";
+                clear   : both;
+                display : block;
+            }
+
+            #absolute .pair {
+                position    : relative;
+                height      : 70px;
+                padding-top : 30px;
+                float       : left;
+                width       : 250px;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div id="wrapper">
+            <h1>Möglichkeit Verschachtelung</h1>
+
+            <div class="generation">
+                <div class="siblings">
+                    <div class="sibling">
+                        <div class="name">M</div>
+                        <div class="this-father">MV</div>
+                        <div class="generation">
+                            <div class="siblings">
+                                <div class="sibling">
+                                    <div class="name">X</div>
+                                    <div class="this-father">V</div>
+                                </div>
+                                <div class="sibling">
+                                    <div class="name">Donnerhall</div>
+                                    <div class="this-father">Canci</div>
+                                </div>
+                                <div class="sibling">
+                                    <div class="name">Donnerhall</div>
+                                    <div class="this-father">Canci</div>
+                                </div>
+                                <div class="sibling">
+                                    <div class="name">Susi</div>
+                                    <div class="this-father">Canci</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sibling">
+                        <div class="name">Donnerhall</div>
+                        <div class="this-father">Canci</div>
+                        <div class="generation">
+                            <div class="siblings">
+                                <div class="sibling">
+                                    <div class="name">Donnerhall</div>
+                                    <div class="this-father">Canci</div>
+                                </div>
+                                <div class="sibling">
+                                    <div class="name">Donnerhall</div>
+                                    <div class="this-father">Canci</div>
+                                </div>
+                                <div class="sibling">
+                                    <div class="name">Donnerhall</div>
+                                    <div class="this-father">Canci</div>
+                                </div>
+                                <div class="sibling">
+                                    <div class="name">Susi</div>
+                                    <div class="this-father">Canci</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sibling">
+                        <div class="name">Donnerhall</div>
+                        <div class="this-father">Canci</div>
+                    </div>
+                    <div class="sibling">
+                        <div class="name">Susi</div>
+                        <div class="this-father">Canci</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h1>Möglichkeit Absolut</h1>
+
+        <div id="absolute">
+            <div class="generation">
+                <div class="pair">
+                    <div class="name">{{ item.name }}</div>
+                    <div class="father">{{ item.father.name }}</div>
+                </div>
+                <div class="pair">
+                    <div class="name">{{ item.name }}</div>
+                    <div class="father">{{ item.father.name }}</div>
+                </div>
+                <div class="pair">
+                    <div class="name">{{ item.name }}</div>
+                    <div class="father">{{ item.father.name }}</div>
+                </div>
+            </div>
+            <div class="generation">
+                <div class="pair">
+                    <div class="name">{{ item.name }}</div>
+                    <div class="father">{{ item.father.name }}</div>
+                </div>
+                <div class="pair">
+                    <div class="name">{{ item.name }}</div>
+                    <div class="father">{{ item.father.name }}</div>
+                </div>
+            </div>
+        </div>
+
+        <h1>Template</h1>
+
+        <div id="pedigree"></div>
+        <script>
+            Fancy.debugEnabled = true;
+            Fancy( "#pedigree" ).pedigree();
+        </script>
+    </body>
+</html>
